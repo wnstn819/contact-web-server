@@ -1,6 +1,7 @@
 import { EditContact } from './types';
 
-const apiBaseUrl = 'https://jammanbo-contact-server.herokuapp.com/contacts';
+const apiBaseUrl = 'https://nestjs-api-back.herokuapp.com/user';
+//const apiBaseUrl = 'https://jammanbo-contact-server.herokuapp.com/contacts';
 
 export const getAll = async () => {
   const response = await fetch(apiBaseUrl);
@@ -15,7 +16,7 @@ export const remove = async (id: number) => {
 };
 
 export const create = async (editContact: EditContact) => {
-  const result = await fetch(`${apiBaseUrl}`, {
+  const result = await fetch(`${apiBaseUrl}/user`, {
     method: 'POST',
     body: JSON.stringify({ ...editContact, age: Number(editContact.age) }), // data can be `string` or {object}!
     headers: {
